@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Will You Be My Valentine?</title>
+  <style>
+    body {
+      background-color: pink;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      color: #d4145a;
+      font-size: 2.5em;
+    }
+    #gif-container {
+      margin: 20px 0;
+    }
+    button {
+      background-color: #ff6699;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      cursor: pointer;
+      border-radius: 8px;
+      margin: 10px;
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      background-color: #ff3366;
+    }
+    #yes-button {
+      transition: transform 0.3s;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="question">Do you like meeeeee ?</h1>
+  <div id="gif-container">
+    <img id="gif" src="https://media.tenor.com/_6CrspFMGuAAAAAM/cute-fingers-fixed-cat.gif" alt="Shy Valentine Gif" width="200" />
+  </div>
+  <button id="yes-button">Yes</button>
+  <button id="no-button">No</button>
+
+  <script>
+    const yesButton = document.getElementById("yes-button");
+    const noButton = document.getElementById("no-button");
+    const questionTitle = document.getElementById("question");
+    const gif = document.getElementById("gif");
+
+    yesButton.addEventListener("click", () => {
+      questionTitle.textContent = "I already knew you'd say Yes enjoy the gift XD!!! ❤️";
+      yesButton.style.display = "none";
+      noButton.style.display = "none";
+      gif.src = "https://media.tenor.com/vjpKNHGxMs0AAAAM/cute-shy.gif";
+    });
+
+    noButton.addEventListener("click", handleNoClick);
+
+    let noClickCount = 0;
+
+    function handleNoClick() {
+      noClickCount++;
+      if (noClickCount === 1) {
+        noButton.textContent = "Are you sure?";
+        yesButton.style.transform = "scale(1.3)";
+      } else if (noClickCount === 2) {
+        noButton.textContent = "Just think about it!";
+        yesButton.style.transform = "scale(1.6)";
+      } else if (noClickCount === 3) {
+        noButton.textContent = "You sure think about me...";
+        yesButton.style.transform = "scale(2.0)";
+      } else {
+        yesButton.style.transform = "scale(10)";
+        yesButton.style.fontSize = "2em";
+        noButton.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>
